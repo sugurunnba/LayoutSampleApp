@@ -1,0 +1,104 @@
+<!--
+android:orientation: 〇〇
+vertical(縦一列)
+horizontal(横一列)
+
+android:layout_width/height: 〇〇、または0dp
+match_parent(親要素の幅に合わせる)
+wrap_content(要素の幅に合わせる)
+
+android:layout_margin: ◯dp(外側の余白)
+android:padding: ◯dp(内側の余白)
+
+寄せ方
+android:gravity: ◯dp(要素の中身を上下左右に合わせる)
+android:layout_gravity: ◯dp(親要素に対して上下左右に合わせる)
+
+android:layout_weight: ◯(数字が入る, 余白を各要素に割り振ることができる)
+※LinearLayout適用時に使うことができる
+※verticalではlayout_height, horizontalではlayout_widthの指定に意味が
+なくなるので、それぞれを0dpにする
+
+
+RelariveLayout: 親要素や子要素に対して数値を相対的に指定できる
+要素にidを割り振り、それぞれを指定する
+android:layout_centerInParent="true" , 要素を画面中央に配置
+android:layout_alignLeft="@id/a" , 指定したid(a)の左に配置
+android:layout_toRightOf="@+id/b" , 指定したid(a)の右に配置
+android:layout_below="@+id/a" , 指定したid(a)の下に要素を配置
+
+
+FlameLayout: 内包されるViewを重ねて表示することができる(FrameLayoutでは
+後から記述したものが重ねられていく仕様になっている)
+例えば、ImageViewを重ねてイラストを作ったりすることができる
+
+
+tableLayout 表組みを作れる
+android:layout_span="◯" , 列の結合
+android:layout_column="◯" , 左列から◯個目の位置に配置(0から数える)
+android:stretchColumns="◯" , 余った余白を指定して列に割り振る
+android:shrinkColumns="◯" , 特定の列の幅を縮ませる
+-->
+
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="1">
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="オラオラオラオラオラ" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="オラオラオラおらおら" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="オラオラオラオラオラ" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:text="1" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:text="1" />
+    </TableRow>
+
+</TableLayout>
